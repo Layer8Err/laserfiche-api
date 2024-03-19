@@ -19,6 +19,7 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+    
     - name: Build the Laserfiche API SDK
       run: docker run -v /API_GEN:/local swaggerapi/swagger-codegen-cli-v3 generate -i 'https://api.laserfiche.com/repository/swagger/v2/swagger.json' --http-user-agent "Chrome/122.0.0.0" -l python -o /local/laserfiche_api -DpackageName=laserfiche_api
    
