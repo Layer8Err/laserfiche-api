@@ -89,11 +89,14 @@ jobs:
         asset_name: ${{ env.DIST_NAME }}
         asset_content_type: application/gzip
         
-    - uses: actions-x/commit@v2
-      name: Commit new PyPi distro package
+    #- uses: actions-x/commit@v6
+    #  name: Commit new PyPi distro package
+    #  with:
+    #    files: ${{ env.DIST_PATH }}
 
     - uses: pypa/gh-action-pypi-publish@release/v1
       name: Publish to PyPi
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+        skip-existing: true
