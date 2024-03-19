@@ -3,11 +3,11 @@
 # Requires Python and "pip3 install twine"
 
 # Get the latest URL from: https://api.laserfiche.com/repository/swagger/index.html
-SWGSPEC='https://api.laserfiche.com/repository/swagger/v1-alpha/swagger.json'
-USRAGT='Chrome/91.0.4472.106'
+SWGSPEC='https://api.laserfiche.com/repository/swagger/v2/swagger.json'
+USRAGT='Chrome/122.0.0.0'
 LFAPI=${PWD}/laserfiche-api
 OPWD=${PWD}
-TGTVER='1.0.9'
+TGTVER='1.1.0'
 
 if [ -d "$LFAPI" ]; then
     echo "$LFAPI folder exists. Cleaning up before rebuilding..."
