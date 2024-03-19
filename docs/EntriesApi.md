@@ -4,84 +4,37 @@ All URIs are relative to *https://api.laserfiche.com/repository*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assign_entry_links**](EntriesApi.md#assign_entry_links) | **PUT** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/links | 
-[**assign_field_values**](EntriesApi.md#assign_field_values) | **PUT** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/fields | 
-[**assign_tags**](EntriesApi.md#assign_tags) | **PUT** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/tags | 
-[**copy_entry_async**](EntriesApi.md#copy_entry_async) | **POST** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Folder/CopyAsync | 
-[**create_or_copy_entry**](EntriesApi.md#create_or_copy_entry) | **POST** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Folder/children | 
-[**delete_assigned_template**](EntriesApi.md#delete_assigned_template) | **DELETE** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/template | 
-[**delete_entry_info**](EntriesApi.md#delete_entry_info) | **DELETE** /v1-alpha/Repositories/{repoId}/Entries/{entryId} | 
-[**export_document**](EntriesApi.md#export_document) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Document/edoc | 
-[**export_document_with_audit_reason**](EntriesApi.md#export_document_with_audit_reason) | **POST** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Document/GetEdocWithAuditReason | 
-[**get_document_content_type**](EntriesApi.md#get_document_content_type) | **HEAD** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Document/edoc | 
-[**get_dynamic_field_values**](EntriesApi.md#get_dynamic_field_values) | **POST** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/fields/GetDynamicFieldLogicValue | 
-[**get_entry**](EntriesApi.md#get_entry) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId} | 
-[**get_entry_listing**](EntriesApi.md#get_entry_listing) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/Laserfiche.Repository.Folder/children | 
-[**get_field_values**](EntriesApi.md#get_field_values) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/fields | 
-[**get_link_values_from_entry**](EntriesApi.md#get_link_values_from_entry) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/links | 
-[**get_tags_assigned_to_entry**](EntriesApi.md#get_tags_assigned_to_entry) | **GET** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/tags | 
-[**import_document**](EntriesApi.md#import_document) | **POST** /v1-alpha/Repositories/{repoId}/Entries/{parentEntryId}/{fileName} | 
-[**move_or_rename_document**](EntriesApi.md#move_or_rename_document) | **PATCH** /v1-alpha/Repositories/{repoId}/Entries/{entryId} | 
-[**write_template_value_to_entry**](EntriesApi.md#write_template_value_to_entry) | **PUT** /v1-alpha/Repositories/{repoId}/Entries/{entryId}/template | 
+[**copy_entry**](EntriesApi.md#copy_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/Copy | Copies a new child entry in a folder.
+[**create_entry**](EntriesApi.md#create_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/Children | Creates a new child entry in a folder.
+[**create_multipart_upload_urls**](EntriesApi.md#create_multipart_upload_urls) | **POST** /v2/Repositories/{repositoryId}/Entries/CreateMultipartUploadUrls | Requests Upload URLs to upload a large file in chunks.
+[**delete_electronic_document**](EntriesApi.md#delete_electronic_document) | **DELETE** /v2/Repositories/{repositoryId}/Entries/{entryId}/Document/Edoc | Deletes the edoc associated with an entry.
+[**delete_pages**](EntriesApi.md#delete_pages) | **DELETE** /v2/Repositories/{repositoryId}/Entries/{entryId}/Document/Pages | Deletes the pages associated with an entry.
+[**export_entry**](EntriesApi.md#export_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Export | Exports an entry.
+[**get_entry**](EntriesApi.md#get_entry) | **GET** /v2/Repositories/{repositoryId}/Entries/{entryId} | Returns a single entry object.
+[**get_entry_by_path**](EntriesApi.md#get_entry_by_path) | **GET** /v2/Repositories/{repositoryId}/Entries/ByPath | Returns a single entry object using the entry path.
+[**import_entry**](EntriesApi.md#import_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/Import | Imports a file into a folder (max length: 100 MB).
+[**list_dynamic_field_values**](EntriesApi.md#list_dynamic_field_values) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Fields/GetDynamicFieldLogicValue | Returns the dynamic field logic values assigned to an entry.
+[**list_entries**](EntriesApi.md#list_entries) | **GET** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/Children | Returns the children entries of a folder.
+[**list_fields**](EntriesApi.md#list_fields) | **GET** /v2/Repositories/{repositoryId}/Entries/{entryId}/Fields | Returns the fields assigned to an entry.
+[**list_links**](EntriesApi.md#list_links) | **GET** /v2/Repositories/{repositoryId}/Entries/{entryId}/Links | Returns the links assigned to an entry.
+[**list_tags**](EntriesApi.md#list_tags) | **GET** /v2/Repositories/{repositoryId}/Entries/{entryId}/Tags | Returns the tags assigned to an entry.
+[**remove_template**](EntriesApi.md#remove_template) | **DELETE** /v2/Repositories/{repositoryId}/Entries/{entryId}/Template | Removes the currently assigned template from an entry.
+[**set_fields**](EntriesApi.md#set_fields) | **PUT** /v2/Repositories/{repositoryId}/Entries/{entryId}/Fields | Updates the field values assigned to an entry.
+[**set_links**](EntriesApi.md#set_links) | **PUT** /v2/Repositories/{repositoryId}/Entries/{entryId}/Links | Assigns links to an entry.
+[**set_tags**](EntriesApi.md#set_tags) | **PUT** /v2/Repositories/{repositoryId}/Entries/{entryId}/Tags | Assigns tags to an entry.
+[**set_template**](EntriesApi.md#set_template) | **PUT** /v2/Repositories/{repositoryId}/Entries/{entryId}/Template | Assigns a template to an entry.
+[**start_copy_entry**](EntriesApi.md#start_copy_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/CopyAsync | Starts an asynchronous copy task to copy an entry into a folder.
+[**start_delete_entry**](EntriesApi.md#start_delete_entry) | **DELETE** /v2/Repositories/{repositoryId}/Entries/{entryId} | Starts an asynchronous delete task to delete an entry.
+[**start_export_entry**](EntriesApi.md#start_export_entry) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/ExportAsync | Starts an asynchronous export task to export an entry.
+[**start_import_uploaded_parts**](EntriesApi.md#start_import_uploaded_parts) | **POST** /v2/Repositories/{repositoryId}/Entries/{entryId}/Folder/ImportUploadedParts | Starts an asynchronous import task to import a document into a folder.
+[**update_entry**](EntriesApi.md#update_entry) | **PATCH** /v2/Repositories/{repositoryId}/Entries/{entryId} | Update an entry. (Move and/or Rename)
 
-# **assign_entry_links**
-> ODataValueOfIListOfWEntryLinkInfo assign_entry_links(repo_id, entry_id, body=body)
+# **copy_entry**
+> Entry copy_entry(body, repository_id, entry_id, culture=culture)
 
+Copies a new child entry in a folder.
 
-
-- Assign links to an entry. - Provide an entry ID and a list of links to assign to that entry. - This is an overwrite action. The request must include all links to assign to the entry, including existing links that should remain assigned to the entry.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The request repository ID.
-entry_id = 56 # int | The requested entry ID.
-body = [laserfiche_api.PutLinksRequest()] # list[PutLinksRequest] |  (optional)
-
-try:
-    api_response = api_instance.assign_entry_links(repo_id, entry_id, body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->assign_entry_links: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The request repository ID. | 
- **entry_id** | **int**| The requested entry ID. | 
- **body** | [**list[PutLinksRequest]**](PutLinksRequest.md)|  | [optional] 
-
-### Return type
-
-[**ODataValueOfIListOfWEntryLinkInfo**](ODataValueOfIListOfWEntryLinkInfo.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **assign_field_values**
-> ODataValueOfIListOfFieldValue assign_field_values(repo_id, entry_id, body=body)
-
-
-
-- Update field values assigned to an entry. - Provide the new field values to assign to the entry, and remove/reset all previously assigned field values.  - This is an overwrite action. The request body must include all desired field values, including any existing field values that should remain assigned to the entry. Field values that are not included in the request will be deleted from the entry. If the field value that is not included is part of a template, it will still be assigned (as required by the template), but its value will be reset.
+- Copy a new child entry in the designated folder. - Provide the parent folder ID, and based on the request body, copy a child entry of the designated folder. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -91,187 +44,33 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-entry_id = 56 # int | The entry ID of the entry that will have its fields updated.
-body = NULL # dict(str, FieldToUpdate) |  (optional)
+body = laserfiche_api.CopyEntryRequest() # CopyEntryRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The folder ID that the entry will be created in.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. (optional)
 
 try:
-    api_response = api_instance.assign_field_values(repo_id, entry_id, body=body)
+    # Copies a new child entry in a folder.
+    api_response = api_instance.copy_entry(body, repository_id, entry_id, culture=culture)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->assign_field_values: %s\n" % e)
+    print("Exception when calling EntriesApi->copy_entry: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **entry_id** | **int**| The entry ID of the entry that will have its fields updated. | 
- **body** | [**dict(str, FieldToUpdate)**](dict.md)|  | [optional] 
-
-### Return type
-
-[**ODataValueOfIListOfFieldValue**](ODataValueOfIListOfFieldValue.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **assign_tags**
-> ODataValueOfIListOfWTagInfo assign_tags(repo_id, entry_id, body=body)
-
-
-
-- Assign tags to an entry. - Provide an entry ID and a list of tags to assign to that entry. - This is an overwrite action. The request must include all tags to assign to the entry, including existing tags that should remain assigned to the entry.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-entry_id = 56 # int | The requested entry ID.
-body = laserfiche_api.PutTagRequest() # PutTagRequest | The tags to add. (optional)
-
-try:
-    api_response = api_instance.assign_tags(repo_id, entry_id, body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->assign_tags: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **entry_id** | **int**| The requested entry ID. | 
- **body** | [**PutTagRequest**](PutTagRequest.md)| The tags to add. | [optional] 
-
-### Return type
-
-[**ODataValueOfIListOfWTagInfo**](ODataValueOfIListOfWTagInfo.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **copy_entry_async**
-> AcceptedOperation copy_entry_async(repo_id, entry_id, body=body, auto_rename=auto_rename)
-
-
-
-- Copy a new child entry in the designated folder async, and potentially return an operationToken. - Provide the parent folder id, and copy an entry as a child of the designated folder. - Optional parameter: autoRename (default false). If an entry already exists with the given name, the entry will be automatically renamed.  - The status of the operation can be checked via the Tasks/{operationToken} route.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The folder id that the entry will be created in.
-body = laserfiche_api.CopyAsyncRequest() # CopyAsyncRequest | Copy entry request. (optional)
-auto_rename = true # bool | An optional query parameter used to indicate if the new entry should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. (optional)
-
-try:
-    api_response = api_instance.copy_entry_async(repo_id, entry_id, body=body, auto_rename=auto_rename)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->copy_entry_async: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The folder id that the entry will be created in. | 
- **body** | [**CopyAsyncRequest**](CopyAsyncRequest.md)| Copy entry request. | [optional] 
- **auto_rename** | **bool**| An optional query parameter used to indicate if the new entry should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. | [optional] 
-
-### Return type
-
-[**AcceptedOperation**](AcceptedOperation.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_or_copy_entry**
-> Entry create_or_copy_entry(repo_id, entry_id, body=body, auto_rename=auto_rename)
-
-
-
-- Create/copy a new child entry in the designated folder. - Provide the parent folder id, and based on the request body, copy or create a folder/shortcut as a child entry of the designated folder. - Optional parameter: autoRename (default false). If an entry already exists with the given name, the entry will be automatically renamed.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The folder id that the entry will be created in.
-body = laserfiche_api.PostEntryChildrenRequest() # PostEntryChildrenRequest | The entry to create. (optional)
-auto_rename = true # bool | An optional query parameter used to indicate if the new entry should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. (optional)
-
-try:
-    api_response = api_instance.create_or_copy_entry(repo_id, entry_id, body=body, auto_rename=auto_rename)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->create_or_copy_entry: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The folder id that the entry will be created in. | 
- **body** | [**PostEntryChildrenRequest**](PostEntryChildrenRequest.md)| The entry to create. | [optional] 
- **auto_rename** | **bool**| An optional query parameter used to indicate if the new entry should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. | [optional] 
+ **body** | [**CopyEntryRequest**](CopyEntryRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The folder ID that the entry will be created in. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. | [optional] 
 
 ### Return type
 
@@ -279,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -288,12 +87,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_assigned_template**
-> Entry delete_assigned_template(repo_id, entry_id)
+# **create_entry**
+> Entry create_entry(body, repository_id, entry_id, culture=culture)
 
+Creates a new child entry in a folder.
 
-
-- Remove the currently assigned template from the specified entry. - Provide an entry id to clear template value on. - If the entry does not have a template assigned, no change will be made.
+- Create a new child entry in the designated folder. - Provide the parent folder ID, and based on the request body, create a folder/shortcut as a child entry of the designated folder. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -303,25 +102,33 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The id of the entry that will have its template removed.
+body = laserfiche_api.CreateEntryRequest() # CreateEntryRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The folder ID that the entry will be created in.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. (optional)
 
 try:
-    api_response = api_instance.delete_assigned_template(repo_id, entry_id)
+    # Creates a new child entry in a folder.
+    api_response = api_instance.create_entry(body, repository_id, entry_id, culture=culture)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->delete_assigned_template: %s\n" % e)
+    print("Exception when calling EntriesApi->create_entry: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The id of the entry that will have its template removed. | 
+ **body** | [**CreateEntryRequest**](CreateEntryRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The folder ID that the entry will be created in. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. | [optional] 
 
 ### Return type
 
@@ -329,59 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_entry_info**
-> AcceptedOperation delete_entry_info(repo_id, entry_id, body=body)
-
-
-
-- Begins a task to delete an entry, and returns an operationToken. - Provide an entry ID, and queue a delete task to remove it from the repository (includes nested objects if the entry is a Folder type). The entry will not be deleted immediately. - Optionally include an audit reason ID and comment in the JSON body. This route returns an operationToken, and will run as an asynchronous operation. Check the progress via the Tasks/{operationToken} route.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-entry_id = 56 # int | The requested entry ID.
-body = laserfiche_api.DeleteEntryWithAuditReason() # DeleteEntryWithAuditReason |  (optional)
-
-try:
-    api_response = api_instance.delete_entry_info(repo_id, entry_id, body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->delete_entry_info: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **entry_id** | **int**| The requested entry ID. | 
- **body** | [**DeleteEntryWithAuditReason**](DeleteEntryWithAuditReason.md)|  | [optional] 
-
-### Return type
-
-[**AcceptedOperation**](AcceptedOperation.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -390,64 +145,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **export_document**
-> str export_document(repo_id, entry_id, range=range)
+# **create_multipart_upload_urls**
+> CreateMultipartUploadUrlsResponse create_multipart_upload_urls(body, repository_id)
 
+Requests Upload URLs to upload a large file in chunks.
 
-
-- Get an entry's edoc resource in a stream format. - Provide an entry id, and get the edoc resource as part of the response content. - Optional header: Range. Use the Range header (single range with byte unit) to retrieve partial content of the edoc, rather than the entire edoc.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The requested document id.
-range = 'range_example' # str | An optional header used to retrieve partial content of the edoc. Only supports single             range with byte unit. (optional)
-
-try:
-    api_response = api_instance.export_document(repo_id, entry_id, range=range)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->export_document: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The requested document id. | 
- **range** | **str**| An optional header used to retrieve partial content of the edoc. Only supports single             range with byte unit. | [optional] 
-
-### Return type
-
-**str**
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/octet-stream, application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **export_document_with_audit_reason**
-> str export_document_with_audit_reason(repo_id, entry_id, body=body, range=range)
-
-
-
-- Get an entry's edoc resource in a stream format while including an audit reason. - Provide an entry id and audit reason/comment in the request body, and get the edoc resource as part of the response content. - Optional header: Range. Use the Range header (single range with byte unit) to retrieve partial content of the edoc, rather than the entire edoc. This route is identical to the GET edoc route, but allows clients to include an audit reason when downloading the edoc.
+- Requests Upload URLs to upload a large file in chunks. - Returns an UploadId and an array of URLs to which the file chunks should be written in the same order. - To request a new batch of Upload URLs for the same file, set the value of UploadId to the one returned when the first batch of Upload URLs was requested. For requesting the first batch of Upload URLs, leave UploadId empty or null. - Example: if a file is going to be uploaded in 10 chunks, the 10 Upload URLs can be retrieved by two successive calls to this api, each call requesting 5 Upload URLs. For this, the first call should have StartingPartNumber=1 and NumberOfParts=5, and the second call should have StartingPartNumber=6 and NumberOfParts=5, along with UploadId returned in the first call. - Each Upload URL expires after 15 minutes. - Each file chunk written to an Upload URL should be at least 5 MB and at most 5 GB. There is no minimum size limit for the last chunk. - The value of NumberOfParts must be in the range [1, 100], meaning that in each call to this api, a maximum of 100 Upload URLs can be requested.  - The total number of Upload URLs for a single file is 1000, which means (StartingPartNumber + NumberOfParts) should be less than or equal to 1001. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -457,51 +160,51 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The requested document id.
-body = laserfiche_api.GetEdocWithAuditReasonRequest() # GetEdocWithAuditReasonRequest |  (optional)
-range = 'range_example' # str | An optional header used to retrieve partial content of the edoc. Only supports single             range with byte unit. (optional)
+body = laserfiche_api.CreateMultipartUploadUrlsRequest() # CreateMultipartUploadUrlsRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
 
 try:
-    api_response = api_instance.export_document_with_audit_reason(repo_id, entry_id, body=body, range=range)
+    # Requests Upload URLs to upload a large file in chunks.
+    api_response = api_instance.create_multipart_upload_urls(body, repository_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->export_document_with_audit_reason: %s\n" % e)
+    print("Exception when calling EntriesApi->create_multipart_upload_urls: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The requested document id. | 
- **body** | [**GetEdocWithAuditReasonRequest**](GetEdocWithAuditReasonRequest.md)|  | [optional] 
- **range** | **str**| An optional header used to retrieve partial content of the edoc. Only supports single             range with byte unit. | [optional] 
+ **body** | [**CreateMultipartUploadUrlsRequest**](CreateMultipartUploadUrlsRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
 
 ### Return type
 
-**str**
+[**CreateMultipartUploadUrlsResponse**](CreateMultipartUploadUrlsResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/octet-stream, application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_document_content_type**
-> get_document_content_type(repo_id, entry_id)
+# **delete_electronic_document**
+> Entry delete_electronic_document(repository_id, entry_id)
 
+Deletes the edoc associated with an entry.
 
-
-- Get information about the edoc content of an entry, without downloading the edoc in its entirety. - Provide an entry id, and get back the Content-Type and Content-Length in the response headers. - This route does not provide a way to download the actual edoc. Instead, it just gives metadata information about the edoc associated with the entry.
+- Delete the edoc associated with the provided entry ID. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -511,32 +214,37 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The requested document id.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested document ID.
 
 try:
-    api_instance.get_document_content_type(repo_id, entry_id)
+    # Deletes the edoc associated with an entry.
+    api_response = api_instance.delete_electronic_document(repository_id, entry_id)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_document_content_type: %s\n" % e)
+    print("Exception when calling EntriesApi->delete_electronic_document: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The requested document id. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested document ID. | 
 
 ### Return type
 
-void (empty response body)
+[**Entry**](Entry.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -545,12 +253,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_dynamic_field_values**
-> dict(str, list[str]) get_dynamic_field_values(repo_id, entry_id, body=body)
+# **delete_pages**
+> Entry delete_pages(repository_id, entry_id, page_range=page_range)
 
+Deletes the pages associated with an entry.
 
-
-- Get dynamic field logic values with the current values of the fields in the template. - Provide an entry id and field values in the JSON body to get dynamic field logic values.  Independent and non-dynamic fields in the request body will be ignored, and only related dynamic field logic values for the assigned template will be returned.
+- Delete the pages associated with the provided entry ID. If no pageRange is specified, all pages will be deleted. - Optional parameter: pageRange (default empty). The value should be a comma-separated string which contains non-overlapping single values, or page ranges. Ex: \"1,2,3\", \"1-3,5\", \"2-7,10-12.\" - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -560,35 +268,97 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The requested entry id.
-body = laserfiche_api.GetDynamicFieldLogicValueRequest() # GetDynamicFieldLogicValueRequest |  (optional)
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested document ID.
+page_range = 'page_range_example' # str | The pages to be deleted. (optional)
 
 try:
-    api_response = api_instance.get_dynamic_field_values(repo_id, entry_id, body=body)
+    # Deletes the pages associated with an entry.
+    api_response = api_instance.delete_pages(repository_id, entry_id, page_range=page_range)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_dynamic_field_values: %s\n" % e)
+    print("Exception when calling EntriesApi->delete_pages: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The requested entry id. | 
- **body** | [**GetDynamicFieldLogicValueRequest**](GetDynamicFieldLogicValueRequest.md)|  | [optional] 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested document ID. | 
+ **page_range** | **str**| The pages to be deleted. | [optional] 
 
 ### Return type
 
-**dict(str, list[str])**
+[**Entry**](Entry.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_entry**
+> ExportEntryResponse export_entry(body, repository_id, entry_id, page_range=page_range)
+
+Exports an entry.
+
+- Export an entry. - The export may time out if it takes longer than 60 seconds. This value is subject to change at anytime. Use the long operation asynchronous export if you run into this restriction. - Required OAuth scope: repository.Read
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.ExportEntryRequest() # ExportEntryRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The ID of entry to export.
+page_range = 'page_range_example' # str | A comma-separated range of pages to include. Ex: 1,3,4 or 1-3,5-7,9. This value is ignored when exporting as Edoc. (optional)
+
+try:
+    # Exports an entry.
+    api_response = api_instance.export_entry(body, repository_id, entry_id, page_range=page_range)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->export_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ExportEntryRequest**](ExportEntryRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The ID of entry to export. | 
+ **page_range** | **str**| A comma-separated range of pages to include. Ex: 1,3,4 or 1-3,5-7,9. This value is ignored when exporting as Edoc. | [optional] 
+
+### Return type
+
+[**ExportEntryResponse**](ExportEntryResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -598,11 +368,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entry**
-> Entry get_entry(repo_id, entry_id, select=select)
+> Entry get_entry(repository_id, entry_id, select=select)
 
+Returns a single entry object.
 
-
-- Returns a single entry object. - Provide an entry ID, and get the entry associated with that ID. Useful when detailed information about the entry is required, such as metadata, path information, etc. - Allowed OData query options: Select. If the entry is a subtype (Folder, Document, or Shortcut), the entry will automatically be converted to include those model-specific properties.
+- Returns a single entry object. - Provide an entry ID, and get the entry associated with that ID. Useful when detailed information about the entry is required, such as metadata, path information, etc. - If the entry is a subtype (Folder, Document, or Shortcut), the entry will automatically be converted to include those model-specific properties. - Allowed OData query options: Select. - When OData Select query option is used, 'entryType' is always included in the result. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -612,15 +382,19 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
+repository_id = 'repository_id_example' # str | The requested repository ID.
 entry_id = 56 # int | The requested entry ID.
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_entry(repo_id, entry_id, select=select)
+    # Returns a single entry object.
+    api_response = api_instance.get_entry(repository_id, entry_id, select=select)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EntriesApi->get_entry: %s\n" % e)
@@ -630,7 +404,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
+ **repository_id** | **str**| The requested repository ID. | 
  **entry_id** | **int**| The requested entry ID. | 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
 
@@ -640,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -649,12 +423,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_entry_listing**
-> ODataValueOfIListOfEntry get_entry_listing(repo_id, entry_id, group_by_entry_type=group_by_entry_type, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+# **get_entry_by_path**
+> GetEntryByPathResponse get_entry_by_path(repository_id, full_path, fallback_to_closest_ancestor=fallback_to_closest_ancestor)
 
+Returns a single entry object using the entry path.
 
-
-- Returns the children entries of a folder in the repository. - Provide an entry ID (must be a folder), and get a paged listing of entries in that folder. Used as a way of navigating through the repository. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. OData $OrderBy syntax should follow: \"PropertyName direction,PropertyName2 direction\". Sort order can be either value \"asc\" or \"desc\". Optional query parameters: groupByOrderType (bool). This query parameter decides if results are returned in groups based on their entry type. Entries returned in the listing are not automatically converted to their subtype (Folder, Shortcut, Document), so clients who want model-specific information should request it via the GET entry by ID route.
+- Returns a single entry object using the entry path. - Optional query parameter: fallbackToClosestAncestor. Use the fallbackToClosestAncestor query parameter to return the closest existing ancestor if the initial entry path is not found. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -664,13 +438,191 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+full_path = 'full_path_example' # str | The requested entry path.
+fallback_to_closest_ancestor = false # bool | An optional query parameter used to indicate whether or not the closest ancestor in the path should be returned if the initial entry path is not found. The default value is false. (optional) (default to false)
+
+try:
+    # Returns a single entry object using the entry path.
+    api_response = api_instance.get_entry_by_path(repository_id, full_path, fallback_to_closest_ancestor=fallback_to_closest_ancestor)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->get_entry_by_path: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **repository_id** | **str**| The requested repository ID. | 
+ **full_path** | **str**| The requested entry path. | 
+ **fallback_to_closest_ancestor** | **bool**| An optional query parameter used to indicate whether or not the closest ancestor in the path should be returned if the initial entry path is not found. The default value is false. | [optional] [default to false]
+
+### Return type
+
+[**GetEntryByPathResponse**](GetEntryByPathResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_entry**
+> Entry import_entry(repository_id, entry_id, file=file, request=request, culture=culture)
+
+Imports a file into a folder (max length: 100 MB).
+
+- Import a new document in the specified folder, and optionally assigns metadata. - The import may fail if the file is greater than 100 MB or time out if it takes longer than 60 seconds. These values are subject to change at anytime. Use the long operation asynchronous import if you run into these restrictions. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The entry ID of the folder that the document will be created in.
+file = 'file_example' # str |  (optional)
+request = laserfiche_api.ImportEntryRequest() # ImportEntryRequest |  (optional)
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. (optional)
+
+try:
+    # Imports a file into a folder (max length: 100 MB).
+    api_response = api_instance.import_entry(repository_id, entry_id, file=file, request=request, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->import_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The entry ID of the folder that the document will be created in. | 
+ **file** | **str**|  | [optional] 
+ **request** | [**ImportEntryRequest**](.md)|  | [optional] 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. | [optional] 
+
+### Return type
+
+[**Entry**](Entry.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_dynamic_field_values**
+> dict(str, list[str]) list_dynamic_field_values(body, repository_id, entry_id)
+
+Returns the dynamic field logic values assigned to an entry.
+
+- Returns dynamic field logic values with the current values of the fields in the template. - Provide an entry ID and field values in the JSON body to get dynamic field logic values. - Independent and non-dynamic fields in the request body will be ignored, and only related dynamic field logic values for the assigned template will be returned. - Required OAuth scope: repository.Read
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.ListDynamicFieldValuesRequest() # ListDynamicFieldValuesRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested entry ID.
+
+try:
+    # Returns the dynamic field logic values assigned to an entry.
+    api_response = api_instance.list_dynamic_field_values(body, repository_id, entry_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->list_dynamic_field_values: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ListDynamicFieldValuesRequest**](ListDynamicFieldValuesRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
+
+### Return type
+
+**dict(str, list[str])**
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_entries**
+> EntryCollectionResponse list_entries(repository_id, entry_id, group_by_entry_type=group_by_entry_type, fields=fields, format_field_values=format_field_values, prefer=prefer, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
+
+Returns the children entries of a folder.
+
+- Returns the children entries of a folder in the repository. - Provide an entry ID (must be a folder), and get a paged listing of entries in that folder. Used as a way of navigating through the repository. - Entries returned in the listing are not automatically converted to their subtype (Folder, Shortcut, Document), so clients who want model-specific information should request it via the GET entry by ID route. - Optional query parameters: groupByEntryType (bool). This query parameter decides if results are returned in groups based on their entry type.  - Optionally returns field values for the entries in the folder. Each field name needs to be specified in the request. Maximum limit of 10 field names. If field values are requested, only the first value is returned if it is a multi value field. The remaining field values can be retrieved via the GET fields route. Null or Empty field values should not be used to determine if a field is assigned to the entry. - Default page size: 150. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. OData $OrderBy syntax should follow: \"PropertyName direction,PropertyName2 direction\". Sort order can be either value \"asc\" or \"desc\". - Required OAuth scope: repository.Read
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+repository_id = 'repository_id_example' # str | The requested repository ID.
 entry_id = 56 # int | The folder ID.
-group_by_entry_type = true # bool | An optional query parameter used to indicate if the result should be grouped by entry type or not. (optional)
+group_by_entry_type = false # bool | Indicates if the result should be grouped by entry type or not. The default value is false. (optional) (default to false)
+fields = ['fields_example'] # list[str] | Optional array of field names. Field values corresponding to the given field names will be returned for each entry. (optional)
+format_field_values = false # bool | Indicates if field values should be formatted. Only applicable if Fields are specified. The default value is false. (optional) (default to false)
 prefer = 'prefer_example' # str | An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
+culture = '' # str | An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
 orderby = 'orderby_example' # str | Specifies the order in which items are returned. The maximum number of expressions is 5. (optional)
 top = 56 # int | Limits the number of items returned from a collection. (optional)
@@ -678,20 +630,24 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_entry_listing(repo_id, entry_id, group_by_entry_type=group_by_entry_type, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the children entries of a folder.
+    api_response = api_instance.list_entries(repository_id, entry_id, group_by_entry_type=group_by_entry_type, fields=fields, format_field_values=format_field_values, prefer=prefer, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_entry_listing: %s\n" % e)
+    print("Exception when calling EntriesApi->list_entries: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
+ **repository_id** | **str**| The requested repository ID. | 
  **entry_id** | **int**| The folder ID. | 
- **group_by_entry_type** | **bool**| An optional query parameter used to indicate if the result should be grouped by entry type or not. | [optional] 
+ **group_by_entry_type** | **bool**| Indicates if the result should be grouped by entry type or not. The default value is false. | [optional] [default to false]
+ **fields** | [**list[str]**](str.md)| Optional array of field names. Field values corresponding to the given field names will be returned for each entry. | [optional] 
+ **format_field_values** | **bool**| Indicates if field values should be formatted. Only applicable if Fields are specified. The default value is false. | [optional] [default to false]
  **prefer** | **str**| An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
  **orderby** | **str**| Specifies the order in which items are returned. The maximum number of expressions is 5. | [optional] 
  **top** | **int**| Limits the number of items returned from a collection. | [optional] 
@@ -700,11 +656,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfEntry**](ODataValueOfIListOfEntry.md)
+[**EntryCollectionResponse**](EntryCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -713,12 +669,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_field_values**
-> ODataValueOfIListOfFieldValue get_field_values(repo_id, entry_id, prefer=prefer, format_value=format_value, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
+# **list_fields**
+> FieldCollectionResponse list_fields(repository_id, entry_id, prefer=prefer, format_field_values=format_field_values, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
 
+Returns the fields assigned to an entry.
 
-
-- Returns the fields assigned to an entry. - Provide an entry ID, and get a paged listing of all fields assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer.
+- Returns the fields assigned to an entry. - Provide an entry ID, and get a paged listing of all fields assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -728,14 +684,17 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
+repository_id = 'repository_id_example' # str | The requested repository ID.
 entry_id = 56 # int | The requested entry ID.
 prefer = 'prefer_example' # str | An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
-format_value = false # bool | An optional query parameter used to indicate if the field values should be formatted.             The default value is false. (optional) (default to false)
-culture = '' # str | An optional query parameter used to indicate the locale that should be used for formatting.             The value should be a standard language tag. The formatValue query parameter must be set to true, otherwise             culture will not be used for formatting. (optional)
+format_field_values = false # bool | An optional query parameter used to indicate if the field values should be formatted. The default value is false. (optional) (default to false)
+culture = '' # str | An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
 orderby = 'orderby_example' # str | Specifies the order in which items are returned. The maximum number of expressions is 5. (optional)
 top = 56 # int | Limits the number of items returned from a collection. (optional)
@@ -743,21 +702,22 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_field_values(repo_id, entry_id, prefer=prefer, format_value=format_value, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the fields assigned to an entry.
+    api_response = api_instance.list_fields(repository_id, entry_id, prefer=prefer, format_field_values=format_field_values, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_field_values: %s\n" % e)
+    print("Exception when calling EntriesApi->list_fields: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
+ **repository_id** | **str**| The requested repository ID. | 
  **entry_id** | **int**| The requested entry ID. | 
  **prefer** | **str**| An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
- **format_value** | **bool**| An optional query parameter used to indicate if the field values should be formatted.             The default value is false. | [optional] [default to false]
- **culture** | **str**| An optional query parameter used to indicate the locale that should be used for formatting.             The value should be a standard language tag. The formatValue query parameter must be set to true, otherwise             culture will not be used for formatting. | [optional] 
+ **format_field_values** | **bool**| An optional query parameter used to indicate if the field values should be formatted. The default value is false. | [optional] [default to false]
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
  **orderby** | **str**| Specifies the order in which items are returned. The maximum number of expressions is 5. | [optional] 
  **top** | **int**| Limits the number of items returned from a collection. | [optional] 
@@ -766,11 +726,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfFieldValue**](ODataValueOfIListOfFieldValue.md)
+[**FieldCollectionResponse**](FieldCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -779,12 +739,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_link_values_from_entry**
-> ODataValueOfIListOfWEntryLinkInfo get_link_values_from_entry(repo_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+# **list_links**
+> LinkCollectionResponse list_links(repository_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
 
+Returns the links assigned to an entry.
 
-
-- Get the links assigned to an entry. - Provide an entry id, and get a paged listing of links assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer.
+- Returns the links assigned to an entry. - Provide an entry ID, and get a paged listing of links assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -794,11 +754,14 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The requested entry id.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested entry ID.
 prefer = 'prefer_example' # str | An optional odata header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
 orderby = 'orderby_example' # str | Specifies the order in which items are returned. The maximum number of expressions is 5. (optional)
@@ -807,18 +770,19 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_link_values_from_entry(repo_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the links assigned to an entry.
+    api_response = api_instance.list_links(repository_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_link_values_from_entry: %s\n" % e)
+    print("Exception when calling EntriesApi->list_links: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The requested entry id. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
  **prefer** | **str**| An optional odata header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
  **orderby** | **str**| Specifies the order in which items are returned. The maximum number of expressions is 5. | [optional] 
@@ -828,11 +792,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfWEntryLinkInfo**](ODataValueOfIListOfWEntryLinkInfo.md)
+[**LinkCollectionResponse**](LinkCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -841,12 +805,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_tags_assigned_to_entry**
-> ODataValueOfIListOfWTagInfo get_tags_assigned_to_entry(repo_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+# **list_tags**
+> TagCollectionResponse list_tags(repository_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
 
+Returns the tags assigned to an entry.
 
-
-- Get the tags assigned to an entry. - Provide an entry ID, and get a paged listing of tags assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer.
+- Returns the tags assigned to an entry. - Provide an entry ID, and get a paged listing of tags assigned to that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -856,10 +820,13 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
+repository_id = 'repository_id_example' # str | The requested repository ID.
 entry_id = 56 # int | The requested entry ID.
 prefer = 'prefer_example' # str | An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
@@ -869,17 +836,18 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_tags_assigned_to_entry(repo_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the tags assigned to an entry.
+    api_response = api_instance.list_tags(repository_id, entry_id, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->get_tags_assigned_to_entry: %s\n" % e)
+    print("Exception when calling EntriesApi->list_tags: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
+ **repository_id** | **str**| The requested repository ID. | 
  **entry_id** | **int**| The requested entry ID. | 
  **prefer** | **str**| An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
@@ -890,11 +858,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfWTagInfo**](ODataValueOfIListOfWTagInfo.md)
+[**TagCollectionResponse**](TagCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -903,70 +871,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **import_document**
-> CreateEntryResult import_document(repo_id, parent_entry_id, file_name, electronic_document=electronic_document, request=request, auto_rename=auto_rename)
+# **remove_template**
+> Entry remove_template(repository_id, entry_id)
 
+Removes the currently assigned template from an entry.
 
-
-- Creates a new document in the specified folder. - Optionally sets metadata and electronic document component. - Optional parameter: autoRename (default false). If an entry already exists with the given name, the entry will be automatically renamed. With this route, partial success is possible. The response returns multiple operation (entryCreate operation, setEdoc operation, setLinks operation, etc..) objects, which contain information about any errors that may have occurred during the creation. As long as the entryCreate operation succeeds, the entry will be created, even if all other operations fail.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-parent_entry_id = 56 # int | The entry ID of the folder that the document will be created in.
-file_name = 'file_name_example' # str | The created document's file name.
-electronic_document = 'electronic_document_example' # str |  (optional)
-request = laserfiche_api.PostEntryWithEdocMetadataRequest() # PostEntryWithEdocMetadataRequest |  (optional)
-auto_rename = true # bool | An optional query parameter used to indicate if the new document should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. (optional)
-
-try:
-    api_response = api_instance.import_document(repo_id, parent_entry_id, file_name, electronic_document=electronic_document, request=request, auto_rename=auto_rename)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EntriesApi->import_document: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **parent_entry_id** | **int**| The entry ID of the folder that the document will be created in. | 
- **file_name** | **str**| The created document&#x27;s file name. | 
- **electronic_document** | **str**|  | [optional] 
- **request** | [**PostEntryWithEdocMetadataRequest**](.md)|  | [optional] 
- **auto_rename** | **bool**| An optional query parameter used to indicate if the new document should be automatically             renamed if an entry already exists with the given name in the folder. The default value is false. | [optional] 
-
-### Return type
-
-[**CreateEntryResult**](CreateEntryResult.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **move_or_rename_document**
-> Entry move_or_rename_document(repo_id, entry_id, body=body, auto_rename=auto_rename)
-
-
-
-- Moves and/or renames an entry. - Move and/or rename an entry by passing in the new parent folder ID or name in the JSON body. - Optional parameter: autoRename (default false). If an entry already exists with the given name, the entry will be automatically renamed.
+- Remove the currently assigned template from the specified entry. - Provide an entry ID to clear template value on. - If the entry does not have a template assigned, no change will be made. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -976,31 +886,29 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-entry_id = 56 # int | The requested entry ID.
-body = laserfiche_api.PatchEntryRequest() # PatchEntryRequest | The request containing the folder ID that the entry will be moved to and the new name
-            the entry will be renamed to. (optional)
-auto_rename = true # bool | An optional query parameter used to indicate if the entry should be automatically             renamed if another entry already exists with the same name in the folder. The default value is false. (optional)
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The ID of the entry that will have its template removed.
 
 try:
-    api_response = api_instance.move_or_rename_document(repo_id, entry_id, body=body, auto_rename=auto_rename)
+    # Removes the currently assigned template from an entry.
+    api_response = api_instance.remove_template(repository_id, entry_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->move_or_rename_document: %s\n" % e)
+    print("Exception when calling EntriesApi->remove_template: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **entry_id** | **int**| The requested entry ID. | 
- **body** | [**PatchEntryRequest**](PatchEntryRequest.md)| The request containing the folder ID that the entry will be moved to and the new name
-            the entry will be renamed to. | [optional] 
- **auto_rename** | **bool**| An optional query parameter used to indicate if the entry should be automatically             renamed if another entry already exists with the same name in the folder. The default value is false. | [optional] 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The ID of the entry that will have its template removed. | 
 
 ### Return type
 
@@ -1008,7 +916,65 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_fields**
+> FieldCollectionResponse set_fields(body, repository_id, entry_id, culture=culture)
+
+Updates the field values assigned to an entry.
+
+- Update the field values assigned to an entry. - Provide the new field values to assign to the entry, and remove/reset all previously assigned field values. - This is an overwrite action. The request body must include all desired field values, including any existing field values that should remain assigned to the entry. Field values that are not included in the request will be deleted from the entry. If the field value that is not included is part of a template, it will still be assigned (as required by the template), but its value will be reset. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.SetFieldsRequest() # SetFieldsRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The entry ID of the entry that will have its fields updated.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. (optional)
+
+try:
+    # Updates the field values assigned to an entry.
+    api_response = api_instance.set_fields(body, repository_id, entry_id, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->set_fields: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SetFieldsRequest**](SetFieldsRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The entry ID of the entry that will have its fields updated. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. | [optional] 
+
+### Return type
+
+[**FieldCollectionResponse**](FieldCollectionResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -1017,12 +983,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **write_template_value_to_entry**
-> Entry write_template_value_to_entry(repo_id, entry_id, body=body)
+# **set_links**
+> LinkCollectionResponse set_links(body, repository_id, entry_id)
 
+Assigns links to an entry.
 
-
-- Assign a template to an entry. - Provide an entry id, template name, and a list of template fields to assign to that entry. - Only template values will be modified. Any existing independent fields on the entry will not be modified, nor will they be added if included in the request. The only modification to fields will only occur on templated fields. If the previously assigned template includes common template fields as the newly assigned template, the common field values will not be modified.
+- Assign links to an entry. - Provide an entry ID and a list of links to assign to that entry. - This is an overwrite action. The request must include all links to assign to the entry, including existing links that should remain assigned to the entry. - Required OAuth scope: repository.Write
 
 ### Example
 ```python
@@ -1032,27 +998,145 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository id.
-entry_id = 56 # int | The id of entry that will have its template updated.
-body = laserfiche_api.PutTemplateRequest() # PutTemplateRequest | The template and template fields that will be assigned to the entry. (optional)
+body = laserfiche_api.SetLinksRequest() # SetLinksRequest | The request body.
+repository_id = 'repository_id_example' # str | The request repository ID.
+entry_id = 56 # int | The requested entry ID.
 
 try:
-    api_response = api_instance.write_template_value_to_entry(repo_id, entry_id, body=body)
+    # Assigns links to an entry.
+    api_response = api_instance.set_links(body, repository_id, entry_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntriesApi->write_template_value_to_entry: %s\n" % e)
+    print("Exception when calling EntriesApi->set_links: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository id. | 
- **entry_id** | **int**| The id of entry that will have its template updated. | 
- **body** | [**PutTemplateRequest**](PutTemplateRequest.md)| The template and template fields that will be assigned to the entry. | [optional] 
+ **body** | [**SetLinksRequest**](SetLinksRequest.md)| The request body. | 
+ **repository_id** | **str**| The request repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
+
+### Return type
+
+[**LinkCollectionResponse**](LinkCollectionResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_tags**
+> TagCollectionResponse set_tags(body, repository_id, entry_id)
+
+Assigns tags to an entry.
+
+- Assign tags to an entry. - Provide an entry ID and a list of tags to assign to that entry. - This is an overwrite action. The request must include all tags to assign to the entry, including existing tags that should remain assigned to the entry. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.SetTagsRequest() # SetTagsRequest | The tags to add.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested entry ID.
+
+try:
+    # Assigns tags to an entry.
+    api_response = api_instance.set_tags(body, repository_id, entry_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->set_tags: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SetTagsRequest**](SetTagsRequest.md)| The tags to add. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
+
+### Return type
+
+[**TagCollectionResponse**](TagCollectionResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_template**
+> Entry set_template(body, repository_id, entry_id, culture=culture)
+
+Assigns a template to an entry.
+
+- Assign a template to an entry. - Provide an entry ID, template name, and a list of template fields to assign to that entry. - Only template values will be modified. Any existing independent fields on the entry will not be modified, nor will they be added if included in the request. The only modification to fields will only occur on templated fields. If the previously assigned template includes common template fields as the newly assigned template, the common field values will not be modified. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.SetTemplateRequest() # SetTemplateRequest | The template and template fields that will be assigned to the entry.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The ID of entry that will have its template updated.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. (optional)
+
+try:
+    # Assigns a template to an entry.
+    api_response = api_instance.set_template(body, repository_id, entry_id, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->set_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SetTemplateRequest**](SetTemplateRequest.md)| The template and template fields that will be assigned to the entry. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The ID of entry that will have its template updated. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. | [optional] 
 
 ### Return type
 
@@ -1060,7 +1144,295 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_copy_entry**
+> StartTaskResponse start_copy_entry(body, repository_id, entry_id, culture=culture)
+
+Starts an asynchronous copy task to copy an entry into a folder.
+
+- Copy a new child entry in the designated folder async, and potentially return a taskId. - Provide the parent folder ID, and copy an entry as a child of the designated folder. - The status of the operation can be checked via the Tasks route. - Token substitution in the name of the copied entry is not supported. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.StartCopyEntryRequest() # StartCopyEntryRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The folder ID that the entry will be created in.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. (optional)
+
+try:
+    # Starts an asynchronous copy task to copy an entry into a folder.
+    api_response = api_instance.start_copy_entry(body, repository_id, entry_id, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->start_copy_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StartCopyEntryRequest**](StartCopyEntryRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The folder ID that the entry will be created in. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. | [optional] 
+
+### Return type
+
+[**StartTaskResponse**](StartTaskResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_delete_entry**
+> StartTaskResponse start_delete_entry(repository_id, entry_id, body=body)
+
+Starts an asynchronous delete task to delete an entry.
+
+- Begins a task to delete an entry, and returns a taskId. - Provide an entry ID, and queue a delete task to remove it from the repository (includes nested objects if the entry is a Folder type). The entry will not be deleted immediately. - Optionally include an audit reason ID and comment in the JSON body. This route returns a taskId, and will run as an asynchronous operation. Check the progress via the Tasks route. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested entry ID.
+body = laserfiche_api.StartDeleteEntryRequest() # StartDeleteEntryRequest | The submitted audit reason. (optional)
+
+try:
+    # Starts an asynchronous delete task to delete an entry.
+    api_response = api_instance.start_delete_entry(repository_id, entry_id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->start_delete_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
+ **body** | [**StartDeleteEntryRequest**](StartDeleteEntryRequest.md)| The submitted audit reason. | [optional] 
+
+### Return type
+
+[**StartTaskResponse**](StartTaskResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_export_entry**
+> StartTaskResponse start_export_entry(body, repository_id, entry_id, page_range=page_range)
+
+Starts an asynchronous export task to export an entry.
+
+- Starts an asynchronous export operation to export an entry. - If successful, it returns a taskId which can be used to check the status of the export operation or download the export result, otherwise, it returns an error. - Required OAuth scope: repository.Read
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.StartExportEntryRequest() # StartExportEntryRequest | The request body.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The ID of entry to export.
+page_range = 'page_range_example' # str | A comma-separated range of pages to include. Ex: 1,3,4 or 1-3,5-7,9. This value is ignored when part=Edoc. (optional)
+
+try:
+    # Starts an asynchronous export task to export an entry.
+    api_response = api_instance.start_export_entry(body, repository_id, entry_id, page_range=page_range)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->start_export_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**StartExportEntryRequest**](StartExportEntryRequest.md)| The request body. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The ID of entry to export. | 
+ **page_range** | **str**| A comma-separated range of pages to include. Ex: 1,3,4 or 1-3,5-7,9. This value is ignored when part&#x3D;Edoc. | [optional] 
+
+### Return type
+
+[**StartTaskResponse**](StartTaskResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_import_uploaded_parts**
+> StartTaskResponse start_import_uploaded_parts(repository_id, entry_id, body=body, culture=culture)
+
+Starts an asynchronous import task to import a document into a folder.
+
+- Imports a new file in the specified folder. The file should be already written (in chunks) to the upload URLs obtained by calling the Upload api. The maximum file size allowed is 64 GB. - This route does not support partial success. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The entry ID of the folder that the document will be created in.
+body = laserfiche_api.StartImportUploadedPartsRequest() # StartImportUploadedPartsRequest | The request body. (optional)
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. (optional)
+
+try:
+    # Starts an asynchronous import task to import a document into a folder.
+    api_response = api_instance.start_import_uploaded_parts(repository_id, entry_id, body=body, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->start_import_uploaded_parts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The entry ID of the folder that the document will be created in. | 
+ **body** | [**StartImportUploadedPartsRequest**](StartImportUploadedPartsRequest.md)| The request body. | [optional] 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. This may be used when setting field values with tokens. | [optional] 
+
+### Return type
+
+[**StartTaskResponse**](StartTaskResponse.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_entry**
+> Entry update_entry(body, repository_id, entry_id, culture=culture)
+
+Update an entry. (Move and/or Rename)
+
+- Update an entry. (Move and/or Rename) - Move an entry to a new folder by setting the ParentId in the request body. - Rename an entry by setting the Name in the request body. - Required OAuth scope: repository.Write
+
+### Example
+```python
+from __future__ import print_function
+import time
+import laserfiche_api
+from laserfiche_api.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = laserfiche_api.EntriesApi(laserfiche_api.ApiClient(configuration))
+body = laserfiche_api.UpdateEntryRequest() # UpdateEntryRequest | The request containing the folder ID that the entry will be moved to and the new name the entry will be renamed to.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+entry_id = 56 # int | The requested entry ID.
+culture = '' # str | An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. (optional)
+
+try:
+    # Update an entry. (Move and/or Rename)
+    api_response = api_instance.update_entry(body, repository_id, entry_id, culture=culture)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EntriesApi->update_entry: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateEntryRequest**](UpdateEntryRequest.md)| The request containing the folder ID that the entry will be moved to and the new name the entry will be renamed to. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **entry_id** | **int**| The requested entry ID. | 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used. The value should be a standard language tag. | [optional] 
+
+### Return type
+
+[**Entry**](Entry.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 

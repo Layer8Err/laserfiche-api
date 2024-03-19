@@ -4,18 +4,16 @@ All URIs are relative to *https://api.laserfiche.com/repository*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_or_close_a_search**](SearchesApi.md#cancel_or_close_a_search) | **DELETE** /v1-alpha/Repositories/{repoId}/Searches/{searchToken} | Cancel or close an advanced search.
-[**create_search_operation**](SearchesApi.md#create_search_operation) | **POST** /v1-alpha/Repositories/{repoId}/Searches | Run a search in the specified repository.
-[**get_search_context_hits**](SearchesApi.md#get_search_context_hits) | **GET** /v1-alpha/Repositories/{repoId}/Searches/{searchToken}/Results/{rowNumber}/ContextHits | 
-[**get_search_results**](SearchesApi.md#get_search_results) | **GET** /v1-alpha/Repositories/{repoId}/Searches/{searchToken}/Results | Get the search results listing of a search.
-[**get_search_status**](SearchesApi.md#get_search_status) | **GET** /v1-alpha/Repositories/{repoId}/Searches/{searchToken} | Get the status of a search using a token.
+[**list_search_context_hits**](SearchesApi.md#list_search_context_hits) | **GET** /v2/Repositories/{repositoryId}/Searches/{taskId}/Results/{rowNumber}/ContextHits | Returns the context hits associated with a search result entry.
+[**list_search_results**](SearchesApi.md#list_search_results) | **GET** /v2/Repositories/{repositoryId}/Searches/{taskId}/Results | Returns the results listing associated with a search task.
+[**start_search_entry**](SearchesApi.md#start_search_entry) | **POST** /v2/Repositories/{repositoryId}/Searches/SearchAsync | Starts an asynchronous search task.
 
-# **cancel_or_close_a_search**
-> ODataValueOfBoolean cancel_or_close_a_search(repo_id, search_token)
+# **list_search_context_hits**
+> SearchContextHitCollectionResponse list_search_context_hits(repository_id, task_id, row_number, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
 
-Cancel or close an advanced search.
+Returns the context hits associated with a search result entry.
 
-- Cancels a currently running search. - Closes a completed search.
+- Returns the context hits associated with a search result entry. - Given a taskId, and rowNumber associated with a search entry in the listing, return the context hits for that entry. - Default page size: 100. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -25,113 +23,14 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.SearchesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-search_token = 'search_token_example' # str | The requested searchToken.
-
-try:
-    # Cancel or close an advanced search.
-    api_response = api_instance.cancel_or_close_a_search(repo_id, search_token)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SearchesApi->cancel_or_close_a_search: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **search_token** | **str**| The requested searchToken. | 
-
-### Return type
-
-[**ODataValueOfBoolean**](ODataValueOfBoolean.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_search_operation**
-> AcceptedOperation create_search_operation(repo_id, body=body)
-
-Run a search in the specified repository.
-
-- Runs a search operation on the repository. - Optional body parameters: FuzzyType: (default none), which can be used to determine what is considered a match by number of letters or percentage. FuzzyFactor: integer value that determines the degree to which a search will be considered a match (integer value for NumberOfLetters, or int value representing a percentage). The status for search operations must be checked via the Search specific status checking route.         
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.SearchesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-body = laserfiche_api.AdvancedSearchRequest() # AdvancedSearchRequest | The Laserfiche search command to run, optionally include fuzzy search settings. (optional)
-
-try:
-    # Run a search in the specified repository.
-    api_response = api_instance.create_search_operation(repo_id, body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SearchesApi->create_search_operation: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **body** | [**AdvancedSearchRequest**](AdvancedSearchRequest.md)| The Laserfiche search command to run, optionally include fuzzy search settings. | [optional] 
-
-### Return type
-
-[**AcceptedOperation**](AcceptedOperation.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_search_context_hits**
-> ODataValueOfIListOfContextHit get_search_context_hits(repo_id, search_token, row_number, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
-
-
-
-- Returns the context hits associated with a search result entry. - Given a searchToken, and rowNumber associated with a search entry in the listing, return the context hits for that entry. - Default page size: 150. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import laserfiche_api
-from laserfiche_api.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = laserfiche_api.SearchesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-search_token = 'search_token_example' # str | The requested searchToken.
+repository_id = 'repository_id_example' # str | The requested repository ID.
+task_id = 'task_id_example' # str | The requested task ID.
 row_number = 56 # int | The search result listing row number to get context hits for.
 prefer = 'prefer_example' # str | An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
@@ -141,18 +40,19 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    api_response = api_instance.get_search_context_hits(repo_id, search_token, row_number, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the context hits associated with a search result entry.
+    api_response = api_instance.list_search_context_hits(repository_id, task_id, row_number, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SearchesApi->get_search_context_hits: %s\n" % e)
+    print("Exception when calling SearchesApi->list_search_context_hits: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **search_token** | **str**| The requested searchToken. | 
+ **repository_id** | **str**| The requested repository ID. | 
+ **task_id** | **str**| The requested task ID. | 
  **row_number** | **int**| The search result listing row number to get context hits for. | 
  **prefer** | **str**| An optional OData header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
@@ -163,11 +63,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfContextHit**](ODataValueOfIListOfContextHit.md)
+[**SearchContextHitCollectionResponse**](SearchContextHitCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -176,12 +76,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_search_results**
-> ODataValueOfIListOfEntry get_search_results(repo_id, search_token, group_by_entry_type=group_by_entry_type, refresh=refresh, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+# **list_search_results**
+> EntryCollectionResponse list_search_results(repository_id, task_id, group_by_entry_type=group_by_entry_type, refresh=refresh, fields=fields, format_field_values=format_field_values, prefer=prefer, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
 
-Get the search results listing of a search.
+Returns the results listing associated with a search task.
 
-- Returns a search result listing if the search is completed. - Optional query parameter: groupByOrderType (default false). This query parameter decides whether or not results are returned in groups based on their entry type. - Optional query parameter: refresh (default false). If the search listing should be refreshed to show updated values. - Default page size: 150. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. OData $OrderBy syntax should follow: \"PropertyName direction,PropertyName2 direction\". sort order can be either \"asc\" or \"desc\".
+- Returns a search result listing if the search is completed. - Search results expire after 5 minutes, but can be refreshed by retrieving the results again. - Optional query parameter: groupByOrderType (default false). This query parameter decides whether or not results are returned in groups based on their entry type. - Optional query parameter: refresh (default false). If the search listing should be refreshed to show updated values. - Optionally returns field values for the entries in the folder. Each field name needs to be specified in the request. Maximum limit of 10 field names. If field values are requested, only the first value is returned if it is a multi value field. The remaining field values can be retrieved via the GET fields route. Null or Empty field values should not be used to determine if a field is assigned to the entry. - Default page size: 150. Allowed OData query options: Select | Count | OrderBy | Skip | Top | SkipToken | Prefer. OData $OrderBy syntax should follow: \"PropertyName direction,PropertyName2 direction\". sort order can be either \"asc\" or \"desc\". - When OData Select query option is used, 'entryType' is always included in the result. - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -191,14 +91,20 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.SearchesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-search_token = 'search_token_example' # str | The requested searchToken.
-group_by_entry_type = true # bool | An optional query parameter used to indicate if the result should be grouped by entry type or not. (optional)
-refresh = true # bool | If the search listing should be refreshed to show updated values. (optional)
+repository_id = 'repository_id_example' # str | The requested repository ID.
+task_id = 'task_id_example' # str | The requested task ID.
+group_by_entry_type = false # bool | Indicates if the result should be grouped by entry type or not. The default value is false. (optional) (default to false)
+refresh = false # bool | Indicates if the search listing should be refreshed to show updated values. The default value is false. (optional) (default to false)
+fields = ['fields_example'] # list[str] | Optional array of field names. Field values corresponding to the given field names will be returned for each search result.  (optional)
+format_field_values = false # bool | Indicates if field values should be formatted. Only applicable if Fields are specified. The default value is false. (optional) (default to false)
 prefer = 'prefer_example' # str | An optional odata header. Can be used to set the maximum page size using odata.maxpagesize. (optional)
+culture = '' # str | An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. (optional)
 select = 'select_example' # str | Limits the properties returned in the result. (optional)
 orderby = 'orderby_example' # str | Specifies the order in which items are returned. The maximum number of expressions is 5. (optional)
 top = 56 # int | Limits the number of items returned from a collection. (optional)
@@ -206,22 +112,25 @@ skip = 56 # int | Excludes the specified number of items of the queried collecti
 count = true # bool | Indicates whether the total count of items within a collection are returned in the result. (optional)
 
 try:
-    # Get the search results listing of a search.
-    api_response = api_instance.get_search_results(repo_id, search_token, group_by_entry_type=group_by_entry_type, refresh=refresh, prefer=prefer, select=select, orderby=orderby, top=top, skip=skip, count=count)
+    # Returns the results listing associated with a search task.
+    api_response = api_instance.list_search_results(repository_id, task_id, group_by_entry_type=group_by_entry_type, refresh=refresh, fields=fields, format_field_values=format_field_values, prefer=prefer, culture=culture, select=select, orderby=orderby, top=top, skip=skip, count=count)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SearchesApi->get_search_results: %s\n" % e)
+    print("Exception when calling SearchesApi->list_search_results: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **search_token** | **str**| The requested searchToken. | 
- **group_by_entry_type** | **bool**| An optional query parameter used to indicate if the result should be grouped by entry type or not. | [optional] 
- **refresh** | **bool**| If the search listing should be refreshed to show updated values. | [optional] 
+ **repository_id** | **str**| The requested repository ID. | 
+ **task_id** | **str**| The requested task ID. | 
+ **group_by_entry_type** | **bool**| Indicates if the result should be grouped by entry type or not. The default value is false. | [optional] [default to false]
+ **refresh** | **bool**| Indicates if the search listing should be refreshed to show updated values. The default value is false. | [optional] [default to false]
+ **fields** | [**list[str]**](str.md)| Optional array of field names. Field values corresponding to the given field names will be returned for each search result.  | [optional] 
+ **format_field_values** | **bool**| Indicates if field values should be formatted. Only applicable if Fields are specified. The default value is false. | [optional] [default to false]
  **prefer** | **str**| An optional odata header. Can be used to set the maximum page size using odata.maxpagesize. | [optional] 
+ **culture** | **str**| An optional query parameter used to indicate the locale that should be used for formatting. The value should be a standard language tag. The formatFieldValues query parameter must be set to true, otherwise culture will not be used for formatting. | [optional] 
  **select** | **str**| Limits the properties returned in the result. | [optional] 
  **orderby** | **str**| Specifies the order in which items are returned. The maximum number of expressions is 5. | [optional] 
  **top** | **int**| Limits the number of items returned from a collection. | [optional] 
@@ -230,11 +139,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ODataValueOfIListOfEntry**](ODataValueOfIListOfEntry.md)
+[**EntryCollectionResponse**](EntryCollectionResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
@@ -243,12 +152,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_search_status**
-> OperationProgress get_search_status(repo_id, search_token)
+# **start_search_entry**
+> StartTaskResponse start_search_entry(body, repository_id)
 
-Get the status of a search using a token.
+Starts an asynchronous search task.
 
-- Returns search status. - Provide a token (returned in the create search asynchronous route), and get the search status, progress, and any errors that may have occurred. When the search is completed, the Location header can be inspected as a link to the search results. - OperationStatus can be one of the following : NotStarted, InProgress, Completed, Failed, or Canceled.
+- Runs a search operation on the repository. - The status for search operations must be checked via the Tasks route. - For datetime search criteria that relate to time zone like CreateDate and ModifiedDate, the value should be in UTC time. - Optional body parameters: FuzzyType: (default none), which can be used to determine what is considered a match by number of letters or percentage. FuzzyFactor: integer value that determines the degree to which a search will be considered a match (integer value for NumberOfLetters, or int value representing a percentage). - Required OAuth scope: repository.Read
 
 ### Example
 ```python
@@ -258,38 +167,41 @@ import laserfiche_api
 from laserfiche_api.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: OAuth2 Authorization Code Flow
+configuration = laserfiche_api.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = laserfiche_api.SearchesApi(laserfiche_api.ApiClient(configuration))
-repo_id = 'repo_id_example' # str | The requested repository ID.
-search_token = 'search_token_example' # str | The requested searchToken.
+body = laserfiche_api.StartSearchEntryRequest() # StartSearchEntryRequest | The Laserfiche search command to run, optionally include fuzzy search settings.
+repository_id = 'repository_id_example' # str | The requested repository ID.
 
 try:
-    # Get the status of a search using a token.
-    api_response = api_instance.get_search_status(repo_id, search_token)
+    # Starts an asynchronous search task.
+    api_response = api_instance.start_search_entry(body, repository_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SearchesApi->get_search_status: %s\n" % e)
+    print("Exception when calling SearchesApi->start_search_entry: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repo_id** | **str**| The requested repository ID. | 
- **search_token** | **str**| The requested searchToken. | 
+ **body** | [**StartSearchEntryRequest**](StartSearchEntryRequest.md)| The Laserfiche search command to run, optionally include fuzzy search settings. | 
+ **repository_id** | **str**| The requested repository ID. | 
 
 ### Return type
 
-[**OperationProgress**](OperationProgress.md)
+[**StartTaskResponse**](StartTaskResponse.md)
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[Authorization](../README.md#Authorization), [OAuth2 Authorization Code Flow](../README.md#OAuth2 Authorization Code Flow)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
